@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bo Hanpipat — Senior UX Designer crafting clear, useful, and surprising digital products." />
+  <title>Bo Hanpipat · UX Designer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════ NAV ══════════════════════════ -->
+  <header class="nav" role="banner">
+    <nav class="nav__inner container" aria-label="Primary navigation">
+      <a href="/" class="nav__logo" aria-label="Bo Hanpipat home">BH</a>
+      <ul class="nav__links" role="list">
+        <li><a href="#work" class="nav__link">Work</a></li>
+        <li><a href="#about" class="nav__link">About</a></li>
+        <li><a href="#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ══════════════════════════ HERO ══════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow">Senior UX Designer · Thinka App</p>
+        <h1 class="hero__name">Bo Hanpipat</h1>
+        <p class="hero__tagline">
+          I design products that are clear, useful,<br />and a little bit surprising.
+        </p>
+        <div class="hero__cta-row">
+          <a href="#work" class="btn btn--primary">View Work</a>
+          <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <a href="#work" class="hero__scroll" aria-label="Scroll to work">
+        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true">
+          <path d="M7 1v14M1 9l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ══════════════════════ SELECTED WORK ══════════════════════ -->
+    <section class="work" id="work" aria-labelledby="work-heading">
+      <div class="container">
+        <p class="section-label reveal">Selected Work</p>
+        <h2 class="work__heading reveal" id="work-heading">Things I've Built</h2>
+
+        <div class="work__grid reveal-group">
+
+          <!-- Card 1 — Thinka Learning App -->
+          <article class="card reveal" aria-labelledby="card1-title">
+            <span class="badge">App Design</span>
+            <div class="card__thumb card__thumb--1" aria-hidden="true"></div>
+            <h3 class="card__title" id="card1-title">Thinka Learning App</h3>
+            <p class="card__challenge">How might students build better study habits?</p>
+            <hr class="card__divider" />
+            <div class="card__impact">
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="40" data-suffix="%">0%</span>
+                <span class="card__impact-label">task completion</span>
+              </div>
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="3" data-suffix="x">0x</span>
+                <span class="card__impact-label">user retention</span>
+              </div>
+            </div>
+            <a href="case-study.html" class="card__link" aria-label="View Thinka case study">
+              View case study →
+            </a>
+          </article>
+
+          <!-- Card 2 — Order Management System -->
+          <article class="card reveal" aria-labelledby="card2-title">
+            <span class="badge">Feature Design</span>
+            <div class="card__thumb card__thumb--2" aria-hidden="true"></div>
+            <h3 class="card__title" id="card2-title">Order Management System</h3>
+            <p class="card__challenge">Simplifying complex B2B workflows at scale.</p>
+            <hr class="card__divider" />
+            <div class="card__impact">
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="60" data-suffix="%">0%</span>
+                <span class="card__impact-label">fewer errors</span>
+              </div>
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="2" data-suffix="x">0x</span>
+                <span class="card__impact-label">faster ops</span>
+              </div>
+            </div>
+            <a href="case-study.html" class="card__link" aria-label="View Order Management case study">
+              View case study →
+            </a>
+          </article>
+
+          <!-- Card 3 — Component Library -->
+          <article class="card reveal" aria-labelledby="card3-title">
+            <span class="badge">Design System</span>
+            <div class="card__thumb card__thumb--3" aria-hidden="true"></div>
+            <h3 class="card__title" id="card3-title">Component Library</h3>
+            <p class="card__challenge">One source of truth for 4 product teams.</p>
+            <hr class="card__divider" />
+            <div class="card__impact">
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="200" data-suffix="+">0+</span>
+                <span class="card__impact-label">components</span>
+              </div>
+              <div class="card__impact-item">
+                <span class="metric__number" data-target="80" data-suffix="%">0%</span>
+                <span class="card__impact-label">dev handoff speed</span>
+              </div>
+            </div>
+            <a href="case-study.html" class="card__link" aria-label="View Component Library case study">
+              View case study →
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ ABOUT ══════════════════════════ -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <p class="section-label reveal">About</p>
+        <div class="about__grid">
+
+          <!-- Left: bio -->
+          <div class="about__bio reveal">
+            <h2 class="about__heading" id="about-heading">Designer.<br />Thinker.<br />Builder.</h2>
+            <p class="about__text">
+              I'm Bo — a Senior UX Designer with 10+ years shaping digital products across SaaS, edtech, and healthcare. I believe great design lives at the intersection of clarity and surprise.
+            </p>
+            <p class="about__text">
+              Currently at Thinka App, where I lead UX across the core product. Outside of screens, I co-founded a dental clinic in Chiang Rai — which taught me more about service design than any textbook.
+            </p>
+            <ul class="about__skills" role="list" aria-label="Skills">
+              <li class="about__skill">UX Research</li>
+              <li class="about__skill">Interaction Design</li>
+              <li class="about__skill">Design Systems</li>
+              <li class="about__skill">Prototyping</li>
+              <li class="about__skill">Handoff</li>
+            </ul>
+          </div>
+
+          <!-- Right: stats 2×2 -->
+          <aside class="about__stats reveal-group" aria-label="Career highlights">
+            <div class="stat-card reveal">
+              <span class="metric__number" data-target="10" data-suffix="+">0+</span>
+              <span class="stat-card__label">years experience</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="metric__number" data-target="50" data-suffix="+">0+</span>
+              <span class="stat-card__label">projects shipped</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="metric__number" data-target="4" data-suffix="">0</span>
+              <span class="stat-card__label">product domains</span>
+            </div>
+            <div class="stat-card reveal">
+              <span class="metric__number" data-target="1" data-suffix="">0</span>
+              <span class="stat-card__label">dental clinic 🦷</span>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════ CONTACT ══════════════════════════ -->
+    <section class="contact" id="contact" aria-labelledby="contact-heading">
+      <div class="contact__bg" aria-hidden="true"></div>
+
+      <div class="container contact__inner">
+        <p class="section-label reveal">Contact</p>
+        <h2 class="contact__heading reveal" id="contact-heading">Let's Work Together</h2>
+        <p class="contact__sub reveal">
+          Open to full-time roles, freelance projects, and interesting conversations.
+        </p>
+
+        <div class="contact__cta reveal">
+          <a href="mailto:bo@example.com" class="btn btn--primary">Send me an email</a>
+          <a href="https://linkedin.com/in/bo-hanpipat" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">View LinkedIn</a>
+          <a href="assets/bo-hanpipat-resume.pdf" download class="btn btn--ghost">Download Resume</a>
+        </div>
+      </div>
+
+      <p class="contact__location">Based in Chiang Mai, Thailand · Available for remote work</p>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════ FOOTER ══════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+
+      <span class="footer__copy">© 2025 Bo Hanpipat</span>
+
+      <span class="footer__credit">Designed &amp; built by Bo · with Claude Code</span>
+
+      <nav class="footer__links" aria-label="Social links">
+        <a href="mailto:bo@example.com" class="footer__link" aria-label="Email">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 3h12v8H1V3zm0 0l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Email
+        </a>
+        <a href="https://linkedin.com/in/bo-hanpipat" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="LinkedIn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="12" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M4.5 6.5V10M4.5 4.5v.5M7 10V7.5a1.5 1.5 0 013 0V10M7 6.5V10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/bo-hanpipat" target="_blank" rel="noopener noreferrer" class="footer__link" aria-label="GitHub">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M7 1a6 6 0 00-1.9 11.69c.3.06.41-.13.41-.28v-1c-1.67.36-2.02-.8-2.02-.8-.27-.7-.67-.88-.67-.88-.55-.37.04-.36.04-.36.6.04.92.62.92.62.54.92 1.41.65 1.75.5.05-.39.21-.65.38-.8-1.33-.15-2.73-.67-2.73-2.96 0-.65.23-1.19.62-1.6-.06-.15-.27-.76.06-1.58 0 0 .5-.16 1.65.62A5.75 5.75 0 017 4.9c.51 0 1.02.07 1.5.2 1.14-.78 1.64-.62 1.64-.62.33.82.12 1.43.06 1.58.39.41.62.95.62 1.6 0 2.3-1.4 2.8-2.74 2.95.22.19.41.56.41 1.13v1.68c0 .16.11.34.42.28A6 6 0 007 1z" stroke="currentColor" stroke-width="0.5" fill="currentColor"/>
+          </svg>
+          GitHub
+        </a>
+      </nav>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="scripts/counter.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

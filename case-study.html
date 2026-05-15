@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study · Bo Hanpipat</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+
+  <style>
+    .case-placeholder {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: var(--space-6);
+      padding: var(--space-12) var(--container-pad);
+    }
+
+    .case-placeholder__label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .case-placeholder__title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 0.95;
+      color: var(--color-text-primary);
+    }
+
+    .case-placeholder__body {
+      font-size: var(--text-base);
+      color: var(--color-text-secondary);
+      max-width: 40ch;
+      line-height: var(--leading-normal);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <nav class="nav__inner container" aria-label="Primary navigation">
+      <a href="index.html" class="nav__logo" aria-label="Back to home">BH</a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#work" class="nav__link">Work</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+        <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="case-placeholder">
+      <p class="case-placeholder__label">Case Study</p>
+      <h1 class="case-placeholder__title">Coming<br />Soon</h1>
+      <p class="case-placeholder__body">
+        This case study is being written. Check back soon for the full deep-dive.
+      </p>
+      <a href="index.html" class="btn btn--outline">← Back to Work</a>
+    </div>
+  </main>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
