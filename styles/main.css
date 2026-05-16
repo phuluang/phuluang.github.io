@@ -403,8 +403,6 @@
 /* ─── Project Carousel ───────────────────────────────────────── */
 .project-carousel {
   position: relative;
-  /* Bleed to the right page edge by cancelling the container's right padding */
-  margin-right: calc(-1 * var(--container-pad));
 }
 
 .project-carousel__viewport {
@@ -437,28 +435,54 @@
 .project-carousel__track::after {
   content: '';
   flex-shrink: 0;
-  width: var(--container-pad);
+  width: var(--space-5);
 }
 
 /* Fixed px basis so every card is identical across all carousels */
 .project-carousel__track > .card {
-  flex: 0 0 360px;
-  width: 360px;          /* belt-and-suspenders */
+  flex: 0 0 300px;
+  width: 300px;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-}
-
-@media (max-width: 1024px) {
-  .project-carousel__track > .card {
-    flex: 0 0 300px;
-    width: 300px;
-  }
 }
 
 @media (max-width: 640px) {
   .project-carousel__track > .card {
     flex: 0 0 min(300px, 82vw);
     width: min(300px, 82vw);
+  }
+}
+
+/* ── Desktop: show all cards, no scroll ──────────────────────── */
+@media (min-width: 1024px) {
+  .project-carousel {
+    margin-right: 0;
+  }
+
+  .project-carousel__viewport {
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-top: 8px;   /* keep hover room */
+    margin-top: -8px;
+  }
+
+  .project-carousel__track {
+    width: 100%;
+  }
+
+  .project-carousel__track::after {
+    display: none;
+  }
+
+  .project-carousel__track > .card {
+    flex: 1 1 0;
+    min-width: 0;
+    width: auto;
+    scroll-snap-align: none;
+  }
+
+  .project-carousel__footer {
+    display: none;
   }
 }
 
