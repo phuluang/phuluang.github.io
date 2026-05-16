@@ -46,3 +46,70 @@ Personal UX/UI portfolio website for Bo Hanpipat, Senior UX Designer at Thinka A
 - Use any JS frameworks (React, Vue etc.)
 - Hardcode colors or spacing — always use tokens
 - Add animations without prefers-reduced-motion guard
+
+---
+
+## Workflow (UX + AI Pipeline)
+
+This project follows a 4-phase UX + AI workflow designed with Claude chat.
+
+### Phase 1 — Research ✅
+- Brief document created (bo_portfolio_brief.html)
+- Audience: anyone who wants to know who Bo is
+- Aesthetic: dark, sleek, motion-forward (reference: design tool UIs)
+- Token spec drafted in brief doc
+
+### Phase 2 — Design System ✅
+Order of operations (always follow this):
+1. CLAUDE.md first — before any scaffold
+2. Token spec → styles/tokens.css
+3. Scaffold project structure
+4. Figma Variables sync (in progress)
+
+### Phase 3 — Prototype ✅
+- Hero, Work, About, Contact sections built
+- Live at: https://phuluang.github.io
+- counter.js working for impact metrics
+- Iterate loop: make changes → push → live
+
+### Phase 4 — Handoff (current)
+- [ ] Replace placeholder content (email, links, resume, thumbnails)
+- [ ] Build case-study.html with real content
+- [ ] Figma Variables sync with tokens.css
+- [ ] Custom domain (optional)
+
+## Figma ↔ Code Sync Workflow
+
+Code (styles/tokens.css + HTML/CSS) is the single source of truth.
+Figma is the design scratchpad. Two directions only:
+
+### push to Figma
+Code is updated → sync out to Figma:
+1. Read styles/tokens.css for current token values
+2. Use Figma MCP to update Variables in "Design Tokens" collection
+3. Optionally update Figma frames to reflect latest layout
+4. Figma now mirrors the codebase
+
+### pull from Figma
+Bo explores a new design idea in Figma → bring it into code:
+1. Bo designs in Figma (frames, layout, components)
+2. Use Figma MCP to read design context of updated frames
+3. Translate design → HTML/CSS using existing tokens
+4. Review in browser → iterate if needed
+5. git commit → push → live on GitHub Pages
+
+### Trigger phrases
+- `"push to Figma"` → sync tokens + layout from code → Figma
+- `"pull from Figma"` → translate Figma design → HTML/CSS
+
+Figma file: https://www.figma.com/design/qSNkYJclBkQSaPGAjDx899/Bo-Portfolio
+
+Figma file: https://www.figma.com/design/qSNkYJclBkQSaPGAjDx899/Bo-Portfolio
+
+## Content still needed
+- Real email (replace bo@example.com)
+- Real LinkedIn URL
+- Real GitHub URL
+- Resume PDF → assets/bo-hanpipat-resume.pdf
+- Case study thumbnails → assets/images/
+- Real case study content in case-study.html

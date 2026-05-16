@@ -20,7 +20,7 @@
 
 .section-label {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--color-accent-primary);
@@ -77,7 +77,7 @@
 
 .nav__link {
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
+  font-size: var(--text-base);
   letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -116,7 +116,7 @@
   pointer-events: none;
   background: radial-gradient(
     600px circle at var(--glow-x, -600px) var(--glow-y, -600px),
-    rgba(123, 110, 246, 0.12),
+    rgba(57, 112, 255, 0.12),
     transparent 60%
   );
 }
@@ -227,15 +227,309 @@
   margin-bottom:  var(--space-12);
 }
 
-.work__grid {
-  display: grid;
-  gap: var(--space-6);
-  grid-template-columns: 1fr;
+/* ─── Work Timeline ──────────────────────────────────────────── */
+.work__timeline {
+  position: relative;
+  margin-top: var(--space-12);
 }
 
-@media (min-width: 768px) {
-  .work__grid {
-    grid-template-columns: repeat(2, 1fr);
+/* Vertical connecting line — center of 28px connector col: 128 + 14 = 142px */
+.work__timeline::before {
+  content: '';
+  position: absolute;
+  left: 141px;
+  top: 28px;
+  bottom: 160px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-primary) 0%,
+    rgba(57, 112, 255, 0.2) 75%,
+    transparent 100%
+  );
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 128px 28px 1fr;
+  align-items: start;
+  margin-bottom: var(--space-12);
+}
+
+/* Left: date range */
+.timeline-item__left {
+  padding-top: 4px;
+  padding-right: var(--space-4);
+  text-align: right;
+}
+
+.timeline-item__year {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);   /* 48px Bebas Neue */
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-wide);
+  line-height: 1;
+}
+
+.timeline-item__end {
+  display: none;
+}
+
+.timeline-item--current .timeline-item__end {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-secondary);
+  margin-top: var(--space-1);
+}
+
+/* Center: dot connector — flex centers the 10px dot within the 28px column */
+.timeline-item__connector {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 19px;
+}
+
+.timeline-item__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-accent-primary);
+  border: 2px solid var(--color-bg-base);
+  box-shadow: 0 0 0 1px var(--color-accent-primary);
+  flex-shrink: 0;
+}
+
+.timeline-item--current .timeline-item__dot {
+  width: 15px;
+  height: 15px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline-item--current .timeline-item__dot {
+    animation: tl-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes tl-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1px var(--color-accent-primary),
+                0 0  8px rgba(57, 112, 255, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(57, 112, 255, 0.15),
+                0 0 20px rgba(57, 112, 255, 0.45);
+  }
+}
+
+/* Right: company + card */
+.timeline-item__right {
+  padding-left: var(--space-5);
+  min-width: 0;   /* prevent grid 1fr column from blowing out to content min-size */
+}
+
+/* Company header */
+.timeline-company {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.company-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: #fff;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.company-logo--thinka   { background: linear-gradient(135deg, #3970ff, #6090ff); }
+.company-logo--lineman  { background: linear-gradient(135deg, #00a862, #00cc7a); }
+.company-logo--taskworld { background: linear-gradient(135deg, #2563eb, #3b82f6); }
+
+.company-info__name {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.company-info__role {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-top: 3px;
+}
+
+/* Mobile: collapse to stacked */
+@media (max-width: 640px) {
+  .work__timeline::before { display: none; }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    margin-bottom: var(--space-10);
+  }
+
+  .timeline-item__left {
+    text-align: left;
+    padding-top: 0;
+    padding-right: 0;
+    margin-bottom: var(--space-2);
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .timeline-item__connector { display: none; }
+  .timeline-item__right { padding-left: 0; }
+}
+
+/* ─── Project Carousel ───────────────────────────────────────── */
+.project-carousel {
+  position: relative;
+  /* Bleed to the right page edge by cancelling the container's right padding */
+  margin-right: calc(-1 * var(--container-pad));
+}
+
+.project-carousel__viewport {
+  overflow-x: scroll;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  border-radius: var(--radius-md);
+  /* Give cards room to translate up on hover without clipping.
+     overflow-x: scroll forces overflow-y to auto, so we compensate
+     with padding + negative margin to create visible space above. */
+  padding-top: 8px;
+  margin-top: -8px;
+}
+
+.project-carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.project-carousel__track {
+  display: flex;
+  gap: var(--space-5);
+}
+
+/* padding-right on a flex container isn't counted in scrollWidth (browser quirk).
+   An ::after pseudo-element IS counted, so use that for the right breathing room. */
+.project-carousel__track::after {
+  content: '';
+  flex-shrink: 0;
+  width: var(--container-pad);
+}
+
+/* Fixed px basis so every card is identical across all carousels */
+.project-carousel__track > .card {
+  flex: 0 0 360px;
+  width: 360px;          /* belt-and-suspenders */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 1024px) {
+  .project-carousel__track > .card {
+    flex: 0 0 300px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-carousel__track > .card {
+    flex: 0 0 min(300px, 82vw);
+    width: min(300px, 82vw);
+  }
+}
+
+/* Footer: dots + prev/next */
+.project-carousel__footer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--color-border-bright);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition:
+    width       var(--duration-base) var(--ease-spring),
+    background  var(--duration-fast);
+}
+
+.carousel-dot--active {
+  background: var(--color-accent-primary);
+  width: 20px;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.carousel-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-default);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    border-color  var(--duration-fast),
+    background    var(--duration-fast),
+    color         var(--duration-fast);
+}
+
+.carousel-btn:hover:not(:disabled) {
+  border-color: var(--color-border-bright);
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.28;
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .carousel-btn:hover:not(:disabled) {
+    /* no translate here — keep buttons stable */
   }
 }
 
