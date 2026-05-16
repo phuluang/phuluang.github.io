@@ -400,104 +400,60 @@
   .timeline-item__right { padding-left: 0; }
 }
 
-/* ─── Project Carousel ───────────────────────────────────────── */
-.project-carousel {
-  position: relative;
+/* ─── Bento Grid ─────────────────────────────────────────────── */
+.bento-grid {
+  display: grid;
+  gap: var(--space-4);
 }
 
-.project-carousel__viewport {
-  overflow-x: scroll;
-  overflow-y: visible;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-  scrollbar-width: none;
-  border-radius: var(--radius-md);
-  /* Give cards room to translate up on hover without clipping.
-     overflow-x: scroll forces overflow-y to auto, so we compensate
-     with padding + negative margin to create visible space above. */
-  padding-top: 8px;
-  margin-top: -8px;
+/* 2 items: slight size contrast — featured left, compact right */
+.bento-grid[data-count="2"] {
+  grid-template-columns: 3fr 2fr;
 }
 
-.project-carousel__viewport::-webkit-scrollbar {
-  display: none;
+/* 3 items: large featured card left, two stacked right */
+.bento-grid[data-count="3"] {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
 }
 
-.project-carousel__track {
-  display: flex;
-  gap: var(--space-5);
+.bento-grid[data-count="3"] > .card:first-child {
+  grid-row: span 2;
 }
 
-/* padding-right on a flex container isn't counted in scrollWidth (browser quirk).
-   An ::after pseudo-element IS counted, so use that for the right breathing room. */
-.project-carousel__track::after {
-  content: '';
-  flex-shrink: 0;
-  width: var(--space-5);
+/* Featured card: thumbnail grows to fill extra vertical space */
+.bento-grid[data-count="3"] > .card:first-child .card__thumb {
+  flex: 1;
+  aspect-ratio: unset;
+  min-height: 160px;
 }
 
-/* Fixed px basis so every card is identical across all carousels */
-.project-carousel__track > .card {
-  flex: 0 0 300px;
-  width: 300px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-@media (max-width: 640px) {
-  .project-carousel__track > .card {
-    flex: 0 0 min(300px, 82vw);
-    width: min(300px, 82vw);
-  }
-}
-
-/* ── Desktop: show all cards, no scroll ──────────────────────── */
-@media (min-width: 1024px) {
-  .project-carousel {
-    margin-right: 0;
-  }
-
-  .project-carousel__viewport {
-    overflow: visible;
-    scroll-snap-type: none;
-    padding-top: 8px;   /* keep hover room */
-    margin-top: -8px;
-  }
-
-  .project-carousel__track {
-    width: 100%;
-  }
-
-  .project-carousel__track::after {
-    display: none;
-  }
-
-  .project-carousel__track > .card {
-    flex: 1 1 0;
-    min-width: 0;
-    width: auto;
-    scroll-snap-align: none;
-  }
-
-  .project-carousel__footer {
-    display: none;
-  }
-}
-
-/* Footer: dots + prev/next */
-.project-carousel__footer {
-  display: flex;
-  align-items: center;
+/* Small cards: tighter padding + compact thumbnail */
+.bento-grid[data-count="3"] > .card:not(:first-child) {
+  padding: var(--space-5);
   gap: var(--space-3);
-  margin-top: var(--space-4);
 }
 
-.carousel-dots {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
+.bento-grid[data-count="3"] > .card:not(:first-child) .card__thumb {
+  aspect-ratio: 2 / 1;
+}
+
+/* Mobile: single column for both layouts */
+@media (max-width: 640px) {
+  .bento-grid[data-count="2"],
+  .bento-grid[data-count="3"] {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-grid[data-count="3"] > .card:first-child {
+    grid-row: auto;
+  }
+
+  .bento-grid[data-count="3"] > .card:first-child .card__thumb {
+    flex: none;
+    aspect-ratio: 16 / 9;
+    min-height: unset;
+  }
 }
 
 .carousel-dot {
